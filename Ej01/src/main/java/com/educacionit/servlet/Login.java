@@ -36,6 +36,7 @@ public class Login extends HttpServlet {
 		
 		Usuario usuarioIngresado = validarUsuario(usr, clave);
 		if (usuarioIngresado != null) {
+			//generación del objetos sesion
 			HttpSession httpSession = request.getSession();
 			httpSession.setAttribute("usuario", usr);
 			httpSession.setAttribute("Mensaje", "Objeto Sesion");
@@ -43,7 +44,7 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		else {
-			request.setAttribute("mensajeError", "El usuario ingresado no existe");
+			request.setAttribute("mensajeError", "Los datos ingresados no corresponden con un usuario del sistema");
 			request.getRequestDispatcher("formulario.jsp").forward(request, response);
 		}
 		
@@ -59,6 +60,7 @@ public class Login extends HttpServlet {
 	
 	private Usuario validarUsuario(String mail, String clave) {
 		
+		//Emular acceso a bd y validación de usuario
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		usuarios.add(new Usuario("Lionel Messi", "lionel@gmail.com","1234qwer"));
 		usuarios.add(new Usuario("José Gomez", "jose@gmail.com","1234qwer"));

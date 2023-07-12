@@ -18,8 +18,7 @@
 	
 	<% 
 	String mensaje = (String) request.getAttribute("mensajeError");
-
-	out.print("<h3>"+ mensaje +"</h3>");
+	if (mensaje != null) out.print("<h3>"+ mensaje +"</h3>");
 	%>
 	
 	

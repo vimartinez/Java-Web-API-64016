@@ -24,18 +24,33 @@ else {
 
 %>
 <br><br>
-<h3>Ejemplo Servlet Saludo</h3>
-<form action="Saludo" method="get">
-	<label for="saludo">Saludo Get</label>
-	<input type="text" name="saludo" id="saludo">
-	<button type="submit">Enviar</button>
-</form>
-<br><br>
-<form action="Saludo" method="post">
-	<label for="saludo">Saludo Post</label>
-	<input type="text" name="saludo" id="saludo">
-	<button type="submit">Enviar</button>
+<!-- <h3>Ejemplo Servlet Saludo</h3> -->
+<!-- <form action="Saludo" method="get"> -->
+<!-- 	<label for="saludo">Saludo Get</label> -->
+<!-- 	<input type="text" name="saludo" id="saludo"> -->
+<!-- 	<button type="submit">Enviar</button> -->
+<!-- </form> -->
+<!-- <br><br> -->
+<!-- <form action="Saludo" method="post"> -->
+<!-- 	<label for="saludo">Saludo Post</label> -->
+<!-- 	<input type="text" name="saludo" id="saludo"> -->
+<!-- 	<button type="submit">Enviar</button> -->
+<!-- </form> -->
+
+
+<h3>Seleccione los productos</h3>
+<form action="Productos" method="get">
+	<input type="checkbox" name= "productos" value="teclado"> Teclado <br />
+	<input type="checkbox" name= "productos" value="mouse"> Mouse <br />
+	<input type="checkbox" name= "productos" value="monitor"> Monitor <br />
+	<input type="checkbox" name= "productos" value="Procesador"> Procesador <br />
+	<input type="checkbox" name= "productos" value="memoria"> Memoria <br /><br />
+	<input type="submit" value="Enviar Datros">
 </form>
 
+<br><br>
+
+
+<a href="Logout">Cerrar Sesión</a>
 </body>
 </html>

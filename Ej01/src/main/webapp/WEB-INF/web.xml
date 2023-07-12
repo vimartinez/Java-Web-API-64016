@@ -9,4 +9,29 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>Logout</servlet-name>
+  <display-name>Logout</display-name>
+  <description>El servlet de logout</description>
+  <servlet-class>com.educacionit.servlet.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Logout</servlet-name>
+  <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  <error-code>500</error-code>
+  <location>/error500.jsp</location>
+  </error-page>
+  
+    <error-page>
+  <error-code>404</error-code>
+  <location>/404.html</location>
+  </error-page>
+  
+  <session-config>
+<session-timeout>1</session-timeout>
+</session-config>
 </web-app>
