@@ -5,6 +5,8 @@ Ej 01 - JSP
 Aplicación en JSP que simula un logín (contra una lista predefinda de usuarios) y genera una sesión, redireccionando a página principal.
 Se simula un carrito de compras, se almacenan los elementos elegidos en la sesión y se muestran en otra página.
 Gestión de errores personalizados en web.xml
+
+
 ![image](https://github.com/vimartinez/Java-Web-API-64016/assets/19653664/84fea196-8765-4c2a-9c63-0fd474d8a148)
 
 ![image](https://github.com/vimartinez/Java-Web-API-64016/assets/19653664/6662a7ec-097c-429c-8e9b-dbe8dac77e15)
