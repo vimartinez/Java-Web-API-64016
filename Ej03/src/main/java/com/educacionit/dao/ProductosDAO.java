@@ -13,7 +13,10 @@ public class ProductosDAO implements DAO<Product, Long>, MySQLConnection {
 	private String getAllProducts = "SELECT id, nombre, descripcion, precio FROM productos";
 	private String addProduct = "INSERT INTO productos (ID, nombre, descripcion, precio) VALUES(?, ?, ?, ?)";
 	private String delProduct = "DELETE FROM productos WHERE id = ?";
+	private String getById = "SELECT id, nombre, descripcion, precio FROM productos WHERE id= ?;";
+	private String updProduct = "UPDATE productos SET nombre=?, descripcion=?, precio=? WHERE id=?;";
 	private PreparedStatement ps = null;
+	private PreparedStatement psGet;
 
 	@Override
 	public Boolean add(Product producto) {
@@ -48,14 +51,41 @@ public class ProductosDAO implements DAO<Product, Long>, MySQLConnection {
 
 	@Override
 	public Boolean upd(Product producto) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		
+		try {
+			ps = conectarDB().prepareStatement(updProduct);
+			ps.setString(1, producto.getNombre());
+			ps.setString(2, producto.getDescripcion());
+			ps.setFloat(3, producto.getPrecio());
+			ps.setLong(4, producto.getId());
+			if(ps.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return resultado;
 	}
 
 	@Override
 	public Product getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Product productoAux = null;
+		
+		try {
+			ps = conectarDB().prepareStatement(getById);
+			ps.setLong(1, id);
+			ResultSet resultado = ps.executeQuery();
+			if(resultado.next()) {
+				productoAux = new Product();
+				productoAux.setId(resultado.getLong("id"));
+				productoAux.setNombre(resultado.getNString("nombre"));
+				productoAux.setDescripcion(resultado.getString("descripcion"));
+				productoAux.setPrecio(resultado.getFloat("precio"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return productoAux;
 	}
 
 	@Override
@@ -76,6 +106,33 @@ public class ProductosDAO implements DAO<Product, Long>, MySQLConnection {
 			e.printStackTrace();
 		}
 		return listadoProductos;
+	}
+	
+	public Product getById2(Long id) {
+		Product productoAux = null;
+		Long inicio, tiempo;
+		inicio = System.currentTimeMillis();
+		
+		try {
+			if (psGet == null) {
+				psGet = conectarDB().prepareStatement(getById);
+			}
+			
+			psGet.setLong(1, id);
+			ResultSet resultado = psGet.executeQuery();
+			if(resultado.next()) {
+				productoAux = new Product();
+				productoAux.setId(resultado.getLong("id"));
+				productoAux.setNombre(resultado.getNString("nombre"));
+				productoAux.setDescripcion(resultado.getString("descripcion"));
+				productoAux.setPrecio(resultado.getFloat("precio"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		tiempo = System.currentTimeMillis() - inicio;
+		System.out.println("tiempo de ejecucion " + tiempo.toString());
+		return productoAux;
 	}
 
 }

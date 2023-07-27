@@ -16,8 +16,7 @@ public class ProductosWsImpl implements ProductosWs {
 	@Override
 	@WebMethod
 	public Product getProductById(long productId) {
-		// TODO Auto-generated method stub
-		return null;
+		return productosDao.getById2(productId);
 	}
 
 	@Override
@@ -29,8 +28,7 @@ public class ProductosWsImpl implements ProductosWs {
 	@Override
 	@WebMethod
 	public Boolean updProduct(Product producto) {
-		// TODO Auto-generated method stub
-		return null;
+		return productosDao.upd(producto);
 	}
 
 	@Override
