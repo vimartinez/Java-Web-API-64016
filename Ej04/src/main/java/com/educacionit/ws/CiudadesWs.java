@@ -1,6 +1,5 @@
 package com.educacionit.ws;
 
-import java.awt.geom.CubicCurve2D;
 import java.util.List;
 
 import com.educacionit.dto.CiudadDTO;
@@ -15,7 +14,7 @@ public class CiudadesWs {
 	CiudadService ciudadService = new CiudadService();
 
 	@WebMethod
-	public List<CiudadDTO> getAllProducts() {
+	public List<CiudadDTO> getAllCities() {
 		return ciudadService.getAllCities();
 	}
 
