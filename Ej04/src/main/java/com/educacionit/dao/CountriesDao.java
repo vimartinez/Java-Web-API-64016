@@ -24,26 +24,72 @@ public class CountriesDao implements DAO<Country, Long>, MySQLConnection {
 
 	@Override
 	public Boolean add(Country t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psAdd==null) {
+				psAdd = conectarDB().prepareStatement(add);
+			}
+			psAdd.setLong(1, t.getId());
+			psAdd.setString(2, t.getName());
+
+			if (psAdd.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public Boolean del(Country t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psDelById==null) {
+				psDelById = conectarDB().prepareStatement(delById);
+			}
+			
+			psDelById.setLong(1, t.getId());;
+			if (psDelById.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public Boolean upd(Country t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psUpd==null) {
+				psUpd = conectarDB().prepareStatement(upd);
+			}
+			psUpd.setString(1, t.getName());
+			psUpd.setLong(2, t.getId());
+			if (psUpd.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public Country getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Country CountryAux = null;
+		try {
+			if (psGetById==null) {
+				psGetById = conectarDB().prepareStatement(getById);
+			}
+			psGetById.setLong(1, id);
+			ResultSet resultado = psGetById.executeQuery();
+			if(resultado.next()) {
+				CountryAux = new Country();
+				CountryAux.setId(resultado.getLong("id"));
+				CountryAux.setName(resultado.getString("name"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return CountryAux;
 	}
 
 	@Override

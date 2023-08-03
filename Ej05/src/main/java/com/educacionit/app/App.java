@@ -17,6 +17,7 @@ public class App {
 		System.out.println("Tirar dado de 6 caras:" + dadoPortBindingStub.tirarDado());
 		System.out.println("Tirar dado de 20 caras:" + dadoPortBindingStub.tirarDiferentesDados(20));
 		
+		
 	}
 
 }

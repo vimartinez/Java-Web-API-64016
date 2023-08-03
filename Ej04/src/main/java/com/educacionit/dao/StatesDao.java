@@ -25,26 +25,75 @@ public class StatesDao implements DAO<State, Long>, MySQLConnection {
 
 	@Override
 	public Boolean add(State t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psAdd==null) {
+				psAdd = conectarDB().prepareStatement(add);
+			}
+			psAdd.setLong(1, t.getId());
+			psAdd.setString(2, t.getName());
+			psAdd.setLong(3, t.getId_country());
+
+			if (psAdd.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public Boolean del(State t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psDelById==null) {
+				psDelById = conectarDB().prepareStatement(delById);
+			}
+			
+			psDelById.setLong(1, t.getId());;
+			if (psDelById.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public Boolean upd(State t) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean resultado = false;
+		try {
+			if (psUpd==null) {
+				psUpd = conectarDB().prepareStatement(upd);
+			}
+			psUpd.setString(1, t.getName());
+			psAdd.setLong(2, t.getId_country());
+			psUpd.setLong(3, t.getId());
+			if (psUpd.executeUpdate()==1) resultado = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 
 	@Override
 	public State getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		State StateAux = null;
+		try {
+			if (psGetById==null) {
+				psGetById = conectarDB().prepareStatement(getById);
+			}
+			psGetById.setLong(1, id);
+			ResultSet resultado = psGetById.executeQuery();
+			if(resultado.next()) {
+				StateAux = new State();
+				StateAux.setId(resultado.getLong("id"));
+				StateAux.setName(resultado.getString("name"));
+				StateAux.setId_country(resultado.getLong("id_country"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return StateAux;
 	}
 
 	@Override
