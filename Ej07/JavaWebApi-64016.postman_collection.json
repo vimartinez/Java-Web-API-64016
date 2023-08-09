@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "52d55c0f-7265-4bdc-92d8-d487be01bab0",
+		"name": "JavaWebApi-64016",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7489244"
+	},
+	"item": [
+		{
+			"name": "API-Base",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Ej06/rest/inicial/salu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Ej06",
+						"rest",
+						"inicial",
+						"salu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserById-V1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Ej07/rest/V1/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Ej07",
+						"rest",
+						"V1",
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/Ej07/rest/V2/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Ej07",
+						"rest",
+						"V2",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 55,\r\n    \"nombreApellido\": \"Lionel Messi\",\r\n    \"mail\": \"lionel@gmail.com\",\r\n    \"direccion\": \"Miami\",\r\n    \"clave\": \"1234qwer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Ej07/rest/V2/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Ej07",
+						"rest",
+						"V2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 544\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Ej07/rest/V2/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Ej07",
+						"rest",
+						"V2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 55,\r\n    \"nombreApellido\": \"Julian Alavarez\",\r\n    \"mail\": \"julian@gmail.com\",\r\n    \"direccion\": \"Manchester\",\r\n    \"clave\": \"asdf1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Ej07/rest/V2/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Ej07",
+						"rest",
+						"V2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
