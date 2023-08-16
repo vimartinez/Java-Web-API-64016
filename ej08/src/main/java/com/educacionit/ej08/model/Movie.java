@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Movie {
 	private String summary;
 	private Integer duration_in_minutes;
 	private Integer year_of_release;
+	@Transient
 	private Integer recaudacion;
 
 }
