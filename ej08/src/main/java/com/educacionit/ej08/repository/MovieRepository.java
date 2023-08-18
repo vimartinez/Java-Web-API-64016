@@ -12,4 +12,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long>, MovieReposi
 	@Query(nativeQuery=true, value= "SELECT id, name, summary, year_of_release, duration_in_minutes FROM movie WHERE year_of_release= :year")
 	List<Movie> getAllMoviesByYear(Integer year);
 
+	List<Movie> findByYearOfRelease(Integer year);
+
+	List<Movie> findByYearOfReleaseLessThan(Integer year);
+
 }

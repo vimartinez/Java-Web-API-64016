@@ -50,4 +50,12 @@ public class MovieService {
 		return movieRepository.getAllMoviesByYearAndDuration(year, duration);
 	}
 
+	public List<Movie> getAllMoviesByYearDerived(Integer year) {
+		return movieRepository.findByYearOfRelease(year);
+	}
+
+	public List<Movie> getAllMoviesWithYearLessThan(Integer year) {
+		return movieRepository.findByYearOfReleaseLessThan(year);
+	}
+
 }

@@ -21,8 +21,8 @@ public class Movie {
 	private Long id;
 	private String name;
 	private String summary;
-	private Integer duration_in_minutes;
-	private Integer year_of_release;
+	private Integer durationInMinutes;
+	private Integer yearOfRelease;
 	@Transient
 	private Integer recaudacion;
 

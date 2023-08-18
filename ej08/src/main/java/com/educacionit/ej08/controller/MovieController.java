@@ -87,5 +87,19 @@ public class MovieController {
 		return movieService.getAllMoviesByYearAndDuration(year, duration);
 		
 	}
+	
+	@GetMapping(value="yearderived/{year}")
+	@Operation(summary="Devuelve el listado de peliculas por año con derived query", description="recibe el año en que se estrenó la película", tags = {"Derived Query"})
+	public @ResponseBody List<Movie> getAllMoviesByYearDerived(@Parameter(description="Año de la peli") Integer year){
+		return movieService.getAllMoviesByYearDerived(year);
+		
+	}
+	
+	@GetMapping(value="yearderivedlessthan/{year}")
+	@Operation(summary="Devuelve el listado de peliculas anteriores a un año con derived query", description="recibe el año en para filtrar", tags = {"Derived Query"})
+	public @ResponseBody List<Movie> getAllMoviesWithYearLessThan(@Parameter(description="Año para filtrar") Integer year){
+		return movieService.getAllMoviesWithYearLessThan(year);
+		
+	}
 
 }
