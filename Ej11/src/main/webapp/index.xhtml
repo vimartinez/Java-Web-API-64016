@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<title>JWA-Ej11</title>
+</h:head>
+<h:body>
+Saludo inicial
+<h3>
+		<h:outputText value="#{saludo.mensaje}" />
+	</h3>
+
+	<br />
+	<br />
+	<h:form id="form">
+		<h:panelGrid columns="2" border="0" cellpadding="2" cellspacing="1">
+			<h:outputLabel value="Nombre" for="nombre"></h:outputLabel>
+			<h:inputText id="nombre" value="#{person.name}"></h:inputText>
+			<h:outputLabel value="Mail" for="mail"></h:outputLabel>
+			<h:inputText id="mail" value="#{person.mail}"></h:inputText>
+			<h:outputLabel value="Edad" for="edad"></h:outputLabel>
+			<h:inputText id="edad" value="#{person.age}"></h:inputText>
+			<h:outputLabel value="Dirección" for="direccion"></h:outputLabel>
+			<h:inputText id="direccion" value="#{person.address}"></h:inputText>
+			<h:commandButton value="Enviar" action="#{person.validarDatos}" update="form"></h:commandButton>
+		</h:panelGrid>
+		<h:messages style="color: red"></h:messages>
+	</h:form>
+
+
+<br /><br />
+
+<h:form id="form2">
+<h:panelGrid id="grid" columns="2" border="0" cellpadding="2" cellspacing="1">
+	<h:outputLabel value="Usuario" />
+	<h:inputText id="userName" size="20" label="usuario" required="true">
+		<f:validateLength  for="userName" minimun ="5" maximun = "20"/>
+	</h:inputText>
+	<h:outputLabel value="Clave" />
+	<h:inputSecret id="password" size="20" label="clave" required="true">
+		<f:validateLength for="password" size="20" minimum="5" maximun="10" />
+	</h:inputSecret>
+	<h:commandButton  id="enviar" value="Ingresar" action="result"/>
+</h:panelGrid>
+<h:messages style="color: red"/>
+</h:form>
+
+</h:body>
+</html>
